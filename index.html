@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Rubel Ahmed | Cybersecurity Portfolio</title>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #00ff88;
+            --secondary: #00d4ff;
+            --dark: #0a0a0c;
+            --card-bg: #16161a;
+            --text-main: #e0e0e0;
+            --text-dim: #a0a0a0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body {
+            background-color: var(--dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .bg-glow {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.05), transparent 70%);
+            z-index: -1;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- Language Switcher --- */
+        .lang-switcher {
+            display: flex; gap: 10px; background: #111; padding: 5px; border-radius: 30px; border: 1px solid #333;
+        }
+        .lang-btn {
+            padding: 5px 15px; border: none; background: transparent; color: #666;
+            cursor: pointer; font-weight: 600; border-radius: 20px; transition: 0.3s; font-size: 0.8rem;
+        }
+        .lang-btn.active { background: var(--primary); color: var(--dark); }
+
+        /* --- Navbar --- */
+        nav { padding: 30px 0; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; letter-spacing: 2px; color: var(--primary); font-size: 1.2rem; }
+
+        /* --- Hero Section --- */
+        .hero { padding: 80px 0; display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+        .hero-text { flex: 1; min-width: 300px; }
+        .hero-image { flex: 1; text-align: center; }
+
+        .profile-img {
+            width: 280px; height: 280px; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            object-fit: cover; border: 4px solid var(--primary);
+            box-shadow: 0 0 50px rgba(0, 255, 136, 0.2);
+            animation: morphing 8s infinite alternate ease-in-out;
+        }
+
+        @keyframes morphing {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            100% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+        }
+
+        h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 10px; color: #fff; }
+        .highlight { color: var(--primary); }
+        .role-tag { font-family: 'Fira Code', monospace; color: var(--secondary); margin-bottom: 20px; display: block; }
+
+        /* --- Skills Grid --- */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .card {
+            background: var(--card-bg); padding: 40px; border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.4s;
+        }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .card i { font-size: 2rem; color: var(--primary); margin-bottom: 20px; }
+        .card h3 { color: #fff; margin-bottom: 15px; }
+
+        /* --- Certificates --- */
+        .certs-flex { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; justify-content: center; }
+        .cert-tag {
+            background: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.3);
+            color: var(--primary); padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600;
+        }
+
+        .btn-main {
+            display: inline-block; padding: 15px 35px; background: var(--primary);
+            color: var(--dark); text-decoration: none; font-weight: 700;
+            border-radius: 10px; transition: 0.3s; margin-top: 25px;
+        }
+        .btn-main:hover { box-shadow: 0 0 25px var(--primary); transform: scale(1.05); }
+
+        footer { padding: 60px 0; text-align: center; border-top: 1px solid #222; margin-top: 80px; font-size: 0.8rem; color: var(--text-dim); }
+
+        @media (max-width: 768px) { h1 { font-size: 2.5rem; } .hero { flex-direction: column-reverse; text-align: center; } }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <div class="container">
+        <nav>
+            <div class="logo">GHOST.0x1</div>
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="switchLang('en')">EN</button>
+                <button class="lang-btn" onclick="switchLang('bn')">BN</button>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-text" data-aos="fade-right">
+                <span class="role-tag" id="role-tag"># security_researcher</span>
+                <h1 id="hero-title">Hi, I'm <span class="highlight">Rubel Ahmed</span></h1>
+                <p id="hero-desc" style="color: var(--text-dim); font-size: 1.1rem;">
+                    I am a Cybersecurity Specialist focused on Red Teaming and Bug Hunting. My mission is to identify complex system vulnerabilities and secure the digital world.
+                </p>
+                <a href="mailto:contact@rubel.me" class="btn-main" id="btn-text">Get In Touch</a>
+            </div>
+            <div class="hero-image" data-aos="fade-left">
+                <img src="https://scontent.fdac127-1.fna.fbcdn.net/v/t39.30808-1/622253658_122102566911231757_5840124523405627807_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeFrY_7TsYwlylzMfDLSwdVTpuPRrvh4VkOm49Gu-HhWQwAcvfIZAq9GH3mX08dvLtOPIOtBcYQkthYN8_GqFfOD&_nc_ohc=Wf1CJOtKOtAQ7kNvwG9bzSI&_nc_oc=Adq9m6JzXYpzqFOu4tBbrjSEA7im2CUe_jfHa6hd87KjPa34DuUQbtwHv0kFOfZT40s&_nc_zt=24&_nc_ht=scontent.fdac127-1.fna&_nc_gid=Y0hDqoJkAXedbMhVhpmejA&_nc_ss=7b2a8&oh=00_Af5xF2geuCpZTL155jpefk_CZ6JgVVwRJJl0vnPi8K4nlQ&oe=6A0BD2BF" alt="Rubel Ahmed" class="profile-img">
+            </div>
+        </section>
+
+        <section id="expertise">
+            <h2 id="sec-title" style="text-align: center; font-size: 2rem; margin-bottom: 40px;">Professional Expertise</h2>
+            <div class="grid">
+                <div class="card" data-aos="fade-up">
+                    <i class="fa-solid fa-user-secret"></i>
+                    <h3 id="card1-h">Red Teaming</h3>
+                    <p id="card1-p">Conducting deep security assessments of web applications and networks. Expert in logic flow analysis and vulnerability discovery.</p>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-brands fa-python"></i>
+                    <h3 id="card2-h">Exploit Dev</h3>
+                    <p id="card2-p">Developing custom CLI tools using Python and crafting automated exploit scripts for security testing.</p>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    <h3 id="card3-h">OSINT & Support</h3>
+                    <p id="card3-p">Leveraging Open Source Intelligence for reconnaissance and providing high-level technical support via Help Desk.</p>
+                </div>
+            </div>
+
+            <div class="certs-flex" data-aos="zoom-in">
+                <span class="cert-tag">PNPT</span>
+                <span class="cert-tag">e-JPT</span>
+                <span class="cert-tag">CEH</span>
+                <span class="cert-tag">OSINT Expert</span>
+                <span class="cert-tag">Bug Hunter</span>
+            </div>
+        </section>
+
+        <footer id="footer-text">
+            MD. RUBEL AHMED © 2026 | Secured by Ghost.0x1
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        const translations = {
+            en: {
+                role: "# security_researcher",
+                title: "Hi, I'm <span class='highlight'>Rubel Ahmed</span>",
+                desc: "I am a Cybersecurity Specialist focused on Red Teaming and Bug Hunting. My mission is to identify complex system vulnerabilities and secure the digital world.",
+                btn: "Get In Touch",
+                secTitle: "Professional Expertise",
+                c1h: "Red Teaming",
+                c1p: "Conducting deep security assessments of web applications and networks. Expert in logic flow analysis and vulnerability discovery.",
+                c2h: "Exploit Dev",
+                c2p: "Developing custom CLI tools using Python and crafting automated exploit scripts for security testing.",
+                c3h: "OSINT & Support",
+                c3p: "Leveraging Open Source Intelligence for reconnaissance and providing high-level technical support via Help Desk.",
+                footer: "MD. RUBEL AHMED © 2026 | Secured by Ghost.0x1"
+            },
+            bn: {
+                role: "# সিকিউরিটি_রিসার্চার_v2.0",
+                title: "হাই, আমি <span class='highlight'>রুবেল আহমেদ</span>",
+                desc: "আমি একজন সাইবার সিকিউরিটি বিশেষজ্ঞ, যার মূল ফোকাস হলো রেড টিমিং এবং বাগ হান্টিং। জটিল সিস্টেমের দুর্বলতা খুঁজে বের করা এবং ডিজিটাল বিশ্বকে সুরক্ষিত করাই আমার লক্ষ্য।",
+                btn: "যোগাযোগ করুন",
+                secTitle: "পেশাদার দক্ষতা",
+                c1h: "রেড টিমিং",
+                c1p: "ওয়েব অ্যাপ্লিকেশন এবং নেটওয়ার্কের গভীর সিকিউরিটি অ্যাসেসমেন্ট করা। লজিক ফ্লো অ্যানালাইসিস এবং দুর্বলতা খুঁজে বের করতে পারদর্শী।",
+                c2h: "এক্সপ্লয়েট ডেভেলপমেন্ট",
+                c2p: "পাইথন ব্যবহার করে কাস্টম CLI টুল তৈরি এবং সিকিউরিটি টেস্টিংয়ের জন্য অটোমেটেড এক্সপ্লয়েট স্ক্রিপ্ট তৈরি করা।",
+                c3h: "OSINT ও সাপোর্ট",
+                c3p: "ওপেন সোর্স ইন্টেলিজেন্স ব্যবহার করে তথ্য সংগ্রহ এবং হেল্প ডেস্কের মাধ্যমে উচ্চমানের টেকনিক্যাল সাপোর্ট প্রদান করা।",
+                footer: "মো: রুবেল আহমেদ © ২০২৬ | ঘোস্ট.০x১ দ্বারা সুরক্ষিত"
+            }
+        };
+
+        function switchLang(lang) {
+            // Update Buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Update Content
+            document.getElementById('role-tag').innerText = translations[lang].role;
+            document.getElementById('hero-title').innerHTML = translations[lang].title;
+            document.getElementById('hero-desc').innerText = translations[lang].desc;
+            document.getElementById('btn-text').innerText = translations[lang].btn;
+            document.getElementById('sec-title').innerText = translations[lang].secTitle;
+            document.getElementById('card1-h').innerText = translations[lang].c1h;
+            document.getElementById('card1-p').innerText = translations[lang].c1p;
+            document.getElementById('card2-h').innerText = translations[lang].c2h;
+            document.getElementById('card2-p').innerText = translations[lang].c2p;
+            document.getElementById('card3-h').innerText = translations[lang].c3h;
+            document.getElementById('card3-p').innerText = translations[lang].c3p;
+            document.getElementById('footer-text').innerText = translations[lang].footer;
+        }
+    </script>
+</body>
+</html>
